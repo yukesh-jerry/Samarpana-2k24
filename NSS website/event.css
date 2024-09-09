@@ -1,0 +1,824 @@
+ body {
+    font-family: "Goldman", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    background-color: transparent;
+    margin: 0;
+    padding: 0px;
+    position: relative;
+   
+}
+
+/* Background Video */
+#background-video {
+    position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+z-index: -1;
+}
+/* Adjusting Content */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px;
+
+    border-radius: 12px;
+    position: sticky;
+    top: 0;
+    font-family: "Audiowide", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+   
+}
+.logo {
+    display: flex;
+    align-items: center;
+   
+    
+}
+.logo img {
+    background-color:transparent;
+    width: 80px;
+    height: auto;
+    margin-right: 10px;
+}
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+    font-family: "Bungee Spice", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
+    gap: 20px;
+}
+nav ul li {
+    display: inline;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #020202;
+    font-size: 18px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    border-radius: 8px;
+}
+ 
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+h2 {
+    color: #f7f7f8;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+.event-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+.event-card {
+    background-color: #1c1b1ba7;
+    border: 1px solid #030303db;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+.event-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.event-card:hover {
+    transform: scale(1.05);
+    border-color: #030303;
+}
+.event-card h3 {
+    color: #f9fafb;
+}
+/* Modal container */
+.modal {
+display: none; /* Hidden by default */
+position: fixed; /* Stay in place */
+z-index: 1; /* Sit on top */
+left: 0;
+top: 0;
+width: 100%; /* Full width */
+height: 100%; /* Full height */
+overflow: auto; /* Enable scroll if needed */
+background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+/* Modal content box */
+.modal-content {
+background-color:orange;
+margin: 5% auto; /* 5% from top and centered */
+padding: 20px;
+border: 1px solid #888;
+width: 80%; /* Could be more or less, depending on screen size */
+max-width: 700px;
+border-radius: 10px;
+position: relative;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for effect */
+
+}
+
+/* Close button styling */
+.close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+
+/* Modal headings and lists */
+h2 {
+font-size: 24px;
+margin-bottom: 10px;
+text-align: center;
+color: whitesmoke;
+}
+
+h3 {
+font-size: 20px;
+margin-top: 20px;
+}
+
+
+
+
+
+/* Title */
+#modal-title {
+color: #000;
+font-size: 24px;
+font-weight: bold;
+margin-bottom: 15px;
+text-align: center;
+}
+
+/* Event image */
+#modal-image {
+width: 100%;
+max-height: 300px;
+object-fit: cover;
+border-radius: 10px;
+margin-bottom: 15px;
+}
+
+/* Description */
+#modal-description {
+font-size: 16px;
+margin-bottom: 15px;
+line-height: 1.5;
+}
+
+/* Participants */
+#modal-participants {
+font-size: 16px;
+color: #333;
+margin-bottom: 15px;
+}
+
+/* Prizes list */
+#modal-prizes {
+font-size: 16px;
+margin-bottom: 15px;
+list-style: decimal;
+padding-left: 20px;
+}
+
+/* Location */
+#modal-location {
+font-size: 16px;
+color: #333;
+margin-bottom: 15px;
+}
+
+/* Contact info list */
+#modal-contact {
+font-size: 16px;
+margin-bottom: 15px;
+padding-left: 20px;
+}
+
+/* Scroll for long modal content */
+.modal-content {
+max-height: 90vh; /* Adjust as needed */
+overflow-y: auto;
+}
+/* Modal Register Button */
+/* From Uiverse.io by doniaskima */ 
+.btn-17,
+.btn-17 *,
+.btn-17 :after,
+.btn-17 :before,
+.btn-17:after,
+.btn-17:before {
+border: 0 solid;
+box-sizing: border-box;
+}
+
+.btn-17 {
+-webkit-tap-highlight-color: transparent;
+-webkit-appearance: button;
+background-color: #000;
+background-image: none;
+color: #fff;
+cursor: pointer;
+font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif,
+Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+font-size: 100%;
+font-weight: 900;
+line-height: 1.5;
+margin: 0;
+-webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+padding: 0;
+text-transform: uppercase;
+}
+
+.btn-17:disabled {
+cursor: default;
+}
+
+.btn-17:-moz-focusring {
+outline: auto;
+}
+
+.btn-17 svg {
+display: block;
+vertical-align: middle;
+}
+
+.btn-17 [hidden] {
+display: none;
+}
+
+.btn-17 {
+border-radius: 99rem;
+border-width: 2px;
+padding: 0.8rem 3rem;
+z-index: 0;
+}
+
+.btn-17,
+.btn-17 .text-container {
+overflow: hidden;
+position: relative;
+}
+
+.btn-17 .text-container {
+display: block;
+mix-blend-mode: difference;
+}
+
+.btn-17 .text {
+display: block;
+position: relative;
+}
+
+.btn-17:hover .text {
+-webkit-animation: move-up-alternate 0.3s forwards;
+animation: move-up-alternate 0.3s forwards;
+}
+
+@-webkit-keyframes move-up-alternate {
+0% {
+transform: translateY(0);
+}
+
+50% {
+transform: translateY(80%);
+}
+
+51% {
+transform: translateY(-80%);
+}
+
+to {
+transform: translateY(0);
+}
+}
+
+@keyframes move-up-alternate {
+0% {
+transform: translateY(0);
+}
+
+50% {
+transform: translateY(80%);
+}
+
+51% {
+transform: translateY(-80%);
+}
+
+to {
+transform: translateY(0);
+}
+}
+
+.btn-17:after,
+.btn-17:before {
+--skew: 0.2;
+background: #fff;
+content: "";
+display: block;
+height: 102%;
+left: calc(-50% - 50% * var(--skew));
+pointer-events: none;
+position: absolute;
+top: -104%;
+transform: skew(calc(150deg * var(--skew))) translateY(var(--progress, 0));
+transition: transform 0.2s ease;
+width: 100%;
+}
+
+.btn-17:after {
+--progress: 0%;
+left: calc(50% + 50% * var(--skew));
+top: 102%;
+z-index: -1;
+}
+
+.btn-17:hover:before {
+--progress: 100%;
+}
+
+.btn-17:hover:after {
+--progress: -102%;
+}
+
+footer {
+    background-color: black;
+    color: rgb(250, 250, 250);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.footer-left, .footer-right {
+    width: 45%;
+}
+.footer-left h4, .footer-right h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: yellowgreen;
+}
+.footer-left p, .footer-right p {
+    margin: 5px 0;
+    line-height: 1.6;
+}
+.footer-right p strong {
+    color: #030303;
+}
+
+@media (max-width: 768px) {
+.logo img {
+width: 50px;
+}
+
+.logo h1 {
+font-size: 20px;
+}
+
+nav ul {
+flex-direction: column;
+}
+
+nav ul li a {
+font-size: 16px;
+padding: 8px 16px;
+}
+
+.event-card {
+padding: 10px;
+}
+
+.event-card img {
+height: 120px;
+}
+
+h2 {
+font-size: 20px;
+}
+
+h3 {
+font-size: 18px;
+}
+
+#modal-title {
+font-size: 22px;
+}
+
+#modal-description,
+#modal-participants,
+#modal-location {
+font-size: 14px;
+}
+
+#modal-prizes,
+#modal-contact {
+font-size: 14px;
+}
+
+#registerButton {
+font-size: 14px;
+padding: 12px 24px;
+}
+}
+
+@media (max-width: 480px) {
+.logo img {
+width: 80px;
+}
+
+.logo h1 {
+font-size: 25px;
+}
+
+nav ul {
+gap: 10px;
+}
+
+nav ul li a {
+font-size: 14px;
+padding: 6px 12px;
+}
+
+.event-card {
+padding: 8px;
+}
+
+.event-card img {
+height: 100px;
+}
+
+h2 {
+font-size: 18px;
+}
+
+h3 {
+font-size: 16px;
+}
+
+#modal-title {
+font-size: 20px;
+}
+
+#modal-description,
+#modal-participants,
+#modal-location {
+font-size: 12px;
+}
+
+#modal-prizes,
+#modal-contact {
+font-size: 12px;
+}
+
+#registerButton {
+font-size: 12px;
+padding: 10px 20px;
+}
+}
+/* Basic Styles for Desktop */
+nav ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+display: flex;
+gap: 20px;
+}
+
+nav ul li {
+display: inline;
+}
+
+nav ul li a {
+text-decoration: none;
+color: #020202;
+font-size: 18px;
+padding: 10px 20px;
+transition: background-color 0.3s ease;
+border-radius: 8px;
+}
+
+
+
+/* Hamburger Menu Styles */
+.hamburger {
+display: none;
+flex-direction: column;
+cursor: pointer;
+z-index: 10;
+}
+
+.hamburger span {
+height: 3px;
+width: 30px;
+background-color: #333;
+margin: 5px;
+transition: 0.3s;
+}
+
+/* Fullscreen Overlay Menu */
+.overlay-menu {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+background-color: rgba(0, 0, 0, 0.9);
+z-index: 9;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+opacity: 0;
+transition: opacity 0.5s ease;
+}
+
+.overlay-menu ul {
+list-style: none;
+text-align: center;
+}
+
+.overlay-menu ul li {
+/* margin: 20px 0; */
+}
+
+.overlay-menu ul li a {
+color: #fff;
+font-size: 24px;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.overlay-menu ul li a:hover {
+color: #f7f7f7;
+}
+
+/* Show overlay when active */
+.overlay-menu.active {
+display: flex;
+opacity: 1;
+}
+
+/* Responsive Styles for Mobile */
+@media (max-width: 768px) {
+nav ul {
+display: none; /* Hide default nav links */
+}
+
+.hamburger {
+display: flex; /* Show hamburger menu */
+}
+
+/* Hamburger menu transition when active */
+.hamburger.active span:nth-child(1) {
+transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+transform: rotate(45deg) translate(-5px, -6px);
+}
+}
+
+
+/* General styling for ul */
+.ul {
+background-color: transparent;
+list-style: none;
+padding: 0;
+margin: 0;
+display: flex;
+gap: 20px;
+}
+
+/* Styling for button */
+.button {
+background-color: transparent;
+font-family: sans-serif;
+color: #fff;
+border: none;
+font-size: 22px;
+font-weight: 700;
+padding: 10px 30px;
+cursor: pointer;
+position: relative;
+padding-left: 11px;
+text-align: center;
+transition: 0.3s;
+z-index: 1;
+}
+
+/* P inside button */
+.p {
+z-index: 2;
+position: relative;
+margin: 0;
+}
+
+/* Hover effects for button */
+.button:hover {
+color: rgb(172, 40, 0);
+}
+
+.button:hover::before {
+transform: rotate(0deg);
+width: 100%;
+height: 40px;
+top: 0;
+border-radius: 3px;
+background-color: rgb(255, 83, 53);
+}
+
+/* Adding hover background animation */
+.button::before {
+content: "";
+position: absolute;
+width: 6px;
+height: 6px;
+background-color: tomato;
+left: -10px;
+top: 19px;
+cursor: pointer;
+transform: rotate(225deg);
+transition: 0.3s;
+z-index: -1;
+border-radius: 3px;
+}
+
+/* Active state of the button */
+.button:active::before {
+background-color: rgb(255, 38, 0);
+}
+
+/* Hamburger menu styling */
+.hamburger {
+display: none;
+flex-direction: column;
+cursor: pointer;
+}
+
+/* Hamburger menu bars */
+.hamburger span {
+display: block;
+width: 25px;
+height: 3px;
+background: white;
+margin: 4px 0;
+transition: 0.3s;
+}
+
+/* Overlay menu */
+.overlay-menu {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.8);
+z-index: 999;
+overflow: hidden;
+justify-content:     center;
+align-items: center;
+}
+
+/* Show overlay menu when active */
+.overlay-menu.active {
+display: flex;
+}
+
+/* Overlay menu links */
+.overlay-menu .ul {
+flex-direction: column;
+gap: 20px;
+}
+
+
+.close-btn {
+position: absolute;
+top: 20px;
+right: 20px;
+font-size: 24px;
+color: white;
+cursor: pointer;
+z-index: 1000;
+}
+
+/* Show hamburger menu and hide navigation links on small screens */
+@media (max-width: 768px) {
+.nav-links {
+display: none;
+}
+
+.hamburger {
+display: flex;
+}
+
+.overlay-menu .ul {
+display: flex;
+}
+}
+
+
+/* Styling for button in header */
+.button {
+    background-color: transparent;
+    font-family: "Audiowide", sans-serif;
+    font-weight: 700;
+    color: white;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 10px 30px;
+    position: relative;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.p {
+    z-index: 2;
+    position: relative;
+    margin: 0;
+}
+
+/* Hover effects for button */
+.button:hover {
+    color: rgb(172, 40, 0);
+}
+
+.button:hover::before {
+    transform: rotate(0deg);
+    width: 100%;
+    height: 40px;
+    top: 0;
+    border-radius: 3px;
+    background-color: rgb(255, 83, 53);
+}
+
+/* Adding hover background animation */
+.button::before {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: tomato;
+    left: -10px;
+    top: 19px;
+    cursor: pointer;
+    transform: rotate(225deg);
+    transition: 0.3s;
+    z-index: -1;
+    border-radius: 3px;
+}
+
+/* Active state of the button */
+.button:active::before {
+    background-color: rgb(255, 38, 0);
+}
+
+/* Apply additional font styles if needed */
+.button.alternate-font {
+    font-family: "Kalnia Glaze", serif; /* Use this for an alternate style */
+    font-weight: 100; /* Adjust weight as needed */
+}

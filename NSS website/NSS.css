@@ -1,0 +1,626 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  /* box-sizing: border-box; */
+}
+
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* Video Background */
+.video-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+/* Content */
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  /* padding: 20px; */
+}
+
+.presents {
+  font-family: "Bungee Tint", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+}
+
+#date{
+
+  font-family: "Paytone One", sans-serif;
+  font-weight: 400;
+  font-style: normal;font-size: 4rem;
+  color: chartreuse;
+  font-size: 2rem;
+ 
+}
+.nss {
+  font-family: "Cherry Cream Soda", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: #f39c12;
+  font-size: 2rem;
+}
+
+#sub {
+  
+  font-family: "Bungee Spice", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+    font-size: 4rem;
+}
+
+.content h1 {
+  font-size: 4rem;
+  color: aqua;
+  font-family: "Protest Guerrilla", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.content p {
+  font-size: 1.5rem;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.content .subtitle {
+  margin-top: 20px; /* Space between paragraphs */
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.content .button {
+  margin-top: 30px; /* Space between subtitle and button */
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: white;
+  font-family: "Bungee Tint", sans-serif;
+  background-color: green;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.content .button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.content .button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.content .button span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Navigation bar styling */
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  /* padding: 20px; */
+  z-index: 2;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-left: 20px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #f39c12; /* Change color on hover */
+}
+
+
+
+/* Voltage Button Styles */
+.voltage-button {
+  position: relative;
+}
+
+.voltage-button button {
+  color: white;
+  background: #0D1127;
+  padding: 1rem 3rem;
+  border-radius: 5rem;
+  font-family: "Cherry Cream Soda", system-ui;
+  border: 5px solid #5978F3;
+  font-size: 1.2rem;
+  transition: background 0.3s;
+}
+
+.voltage-button button:hover {
+  cursor: pointer;
+  background: #0F1C53;
+}
+
+.voltage-button svg, .voltage-button .dots {
+  opacity: 0;
+  transition: opacity 0.4s;
+  transition-delay: 0.1s;
+}
+
+/* Navigation Bar */
+/* 
+/* Left Logo */
+.logo-left img, .logo-right img {
+  width: 100px; /* Adjust logo size */
+}
+
+/* Right Logo */
+.logo-right img {
+  width: 100px;
+}
+
+
+#nav-link ul{
+  display: inline;
+}
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #f39c12; /* Change color on hover */
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: black;
+    width: 100%;
+    text-align: center;
+     padding: 20px 0;
+  } 
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .logo-left img, .logo-right img {
+    width: 40px; /* Adjust logo size for mobile */
+  }
+}
+
+/* Responsiveness for Small Devices */
+@media (max-width: 480px) {
+  .nav-links li a {
+    font-size: 1rem;
+  }
+} */
+
+
+
+/* button */
+
+/* From Uiverse.io by Pradeepsaranbishnoi */ 
+.voltage-button {
+  position: relative;
+}
+
+.voltage-button button {
+  color: white;
+  background: #0D1127;
+  padding: 1rem 3rem 1rem 3rem;
+  border-radius: 5rem;
+  font-family: "Cherry Cream Soda", system-ui;
+  border: 5px solid #5978F3;
+  font-size: 1.2rem;
+  line-height: 1em;
+  letter-spacing: 0.075em;
+  transition: background 0.3s;
+}
+
+.voltage-button button:hover {
+  cursor: pointer;
+  background: #0F1C53;
+}
+
+.voltage-button button:hover + svg, .voltage-button button:hover + svg + .dots {
+  opacity: 1;
+}
+
+.voltage-button svg {
+  display: block;
+  position: absolute;
+  top: -0.75em;
+  left: -0.25em;
+  width: calc(100% + 0.5em);
+  height: calc(100% + 1.5em);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+  transition-delay: 0.1s;
+}
+
+.voltage-button svg path {
+  stroke-dasharray: 100;
+  filter: url("#glow");
+}
+
+.voltage-button svg path.line-1 {
+  stroke: #f6de8d;
+  stroke-dashoffset: 0;
+  animation: spark-1 3s linear infinite;
+}
+
+.voltage-button svg path.line-2 {
+  stroke: #6bfeff;
+  stroke-dashoffset: 500;
+  animation: spark-2 3s linear infinite;
+}
+
+.voltage-button .dots {
+  opacity: 0;
+  transition: opacity 0.3s;
+  transition-delay: 0.4s;
+}
+
+.voltage-button .dots .dot {
+  width: 1rem;
+  height: 1rem;
+  background: white;
+  border-radius: 100%;
+  position: absolute;
+  opacity: 0;
+}
+
+.voltage-button .dots .dot-1 {
+  top: 0;
+  left: 20%;
+  animation: fly-up 3s linear infinite;
+}
+
+.voltage-button .dots .dot-2 {
+  top: 0;
+  left: 55%;
+  animation: fly-up 3s linear infinite;
+  animation-delay: 0.5s;
+}
+
+.voltage-button .dots .dot-3 {
+  top: 0;
+  left: 80%;
+  animation: fly-up 3s linear infinite;
+  animation-delay: 1s;
+}
+
+.voltage-button .dots .dot-4 {
+  bottom: 0;
+  left: 30%;
+  animation: fly-down 3s linear infinite;
+  animation-delay: 2.5s;
+}
+
+.voltage-button .dots .dot-5 {
+  bottom: 0;
+  left: 65%;
+  animation: fly-down 3s linear infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes spark-1 {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes spark-2 {
+  to {
+    stroke-dashoffset: -500;
+  }
+}
+
+@keyframes fly-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.2);
+  }
+
+  5% {
+    opacity: 1;
+    transform: translateY(-1.5rem) scale(0.4);
+  }
+
+  10%, 100% {
+    opacity: 0;
+    transform: translateY(-3rem) scale(0.2);
+  }
+}
+
+@keyframes fly-down {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.2);
+  }
+
+  5% {
+    opacity: 1;
+    transform: translateY(1.5rem) scale(0.4);
+  }
+
+  10%, 100% {
+    opacity: 0;
+    transform: translateY(3rem) scale(0.2);
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  /* For Tablets and Smaller Devices */
+  
+  .content h1 {
+      font-size: 3rem;
+  }
+
+  .content p {
+      font-size: 1.2rem;
+  }
+
+  .content .button {
+      font-size: 0.9rem;
+      padding: 8px 16px;
+  }
+
+  #sub {
+      font-size: 2.5rem;
+  }
+
+  nav ul li a {
+      font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* For Mobile Devices */
+  
+  .content h1 {
+      font-size: 2.5rem;
+  }
+
+  .content p {
+      font-size: 1rem;
+  }
+
+  .content .button {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+  }
+
+  #sub {
+      font-size: 2rem;
+  }
+
+  .presents {
+      font-size: 1.5rem;
+  }
+
+  .nss {
+      font-size: 1.5rem;
+  }
+
+  nav ul li a {
+      font-size: 0.9rem;
+  }
+}
+
+/* header */
+/* From Uiverse.io by asgardOP */ 
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Horizontal Nav Links for Web View */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.li {
+  margin-bottom: 0;
+}
+
+.button {
+  background-color: transparent;
+  font-family: "Audiowide", sans-serif;
+  font-weight: 700;
+  color: white;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  padding: 10px 30px;
+  position: relative;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.p {
+  z-index: 2;
+  position: relative;
+}
+
+.button:hover {
+  color: rgb(172, 40, 0);
+}
+
+.button:hover::before {
+  transform: rotate(0deg);
+  width: 100%;
+  height: 40px;
+  top: 2px;
+  border-radius: 3px;
+  background-color: rgb(255, 83, 53);
+}
+
+.button::before {
+  content: "";
+  border-radius: 1px;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background-color: tomato;
+  left: -10px;
+  top: 19px;
+  cursor: pointer;
+  transform: rotate(225deg);
+  transition: 0.3s;
+  z-index: -1;
+}
+
+.button:active::before {
+  background-color: rgb(255, 38, 0);
+}
+
+/* Hamburger Menu for Mobile View */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  
+}
+
+
+.hamburger .line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px;
+  transition: all 0.3s ease;
+}
+
+
+/* Mobile Menu Links */
+.nav-links.active {
+display: flex; /* Use flexbox to align items */
+flex-direction: column; /* Align items horizontally */
+justify-content: center; /* Center the items horizontally */
+align-items: center; /* Center the items vertically */
+position: fixed;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+background-color: rgba(0, 0, 0, 0.9);
+z-index: 1001;
+gap: 20px; /* Space between items */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  /* Hide horizontal menu and show hamburger in mobile view */
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+  .li{
+    display: flex;
+  }
+
+  .logo-left img, .logo-right img {
+    width: 40px; /* Adjust logo size for mobile */
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .nav-links li a {
+    font-size: 1rem;
+  }
+}
